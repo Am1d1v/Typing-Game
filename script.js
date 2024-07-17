@@ -31,7 +31,7 @@ let randomWord;
 let score = 0;
 
 // Init time
-let time = 10;
+let time = 2;
 
 // Get a random word from array
 function getRandomWord(){
@@ -63,9 +63,24 @@ const timeInterval = setInterval(() => {
     if(time <=0){
         clearInterval(timeInterval);
         time = 0;
+
+        // End Game
+        gameOver();
     }
 
 }, 1000);
+
+// Game Over. Show end screen
+function gameOver(){
+
+    endgameEl.style.display = 'flex';
+
+    endgameEl.innerHTML = `
+        <h1>Time ran out</h1>
+        <p>Your final score is ${score}</p>
+        <button onClick="location.reload()" />Reload
+    `;
+}
 
 // Inserted text event
 text.addEventListener('input', (e) => {
