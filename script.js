@@ -45,6 +45,28 @@ function addWordToDOM(){
 }
 addWordToDOM();
 
+// Update score
+function updateScore(){
+    scoreEl.innerHTML = score;
+}
+
+// Focus on input text on start
+text.focus();
+
+// Timer counting dowm
+const timeInterval = setInterval(() => {
+    // Decrease time by 1
+    time--;
+    
+    timeEl.innerHTML = `${time}s`;
+
+    if(time <=0){
+        clearInterval(timeInterval);
+        time = 0;
+    }
+
+}, 1000);
+
 // Inserted text event
 text.addEventListener('input', (e) => {
     const insertedText = e.target.value;
@@ -52,11 +74,13 @@ text.addEventListener('input', (e) => {
     if(insertedText === randomWord){
         // Increase score by 1
         score += 1;
-
+        updateScore();
+        
         addWordToDOM();
 
         // Clear input field
         e.target.value = '';
         
     }
-})
+});
+
