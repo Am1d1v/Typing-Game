@@ -31,7 +31,7 @@ let randomWord;
 let score = 0;
 
 // Init time
-let time = 2;
+let time = 10;
 
 // Get a random word from array
 function getRandomWord(){
@@ -95,6 +95,9 @@ text.addEventListener('input', (e) => {
 
         // Clear input field
         e.target.value = '';
+
+        // Add time if words match
+        time += 5;
         
     }
 });
