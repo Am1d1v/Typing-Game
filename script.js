@@ -102,8 +102,18 @@ text.addEventListener('input', (e) => {
         // Clear input field
         e.target.value = '';
 
-        // Add time if words match
-        time += 5;
+        // Add time if words match. Additional time depends on level of difficulty
+        switch (difficulty) {
+            case 'easy':
+                time += 5;    
+                break;
+            case 'medium':
+                time += 3;    
+                break;
+            case 'hard':
+                time += 1;    
+                break;
+        }
         
     }
 });
