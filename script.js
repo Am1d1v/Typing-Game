@@ -33,6 +33,9 @@ let score = 0;
 // Init time
 let time = 10;
 
+// Difficulty level
+let difficulty;
+
 // Get a random word from array
 function getRandomWord(){
     return wordsSet[Math.floor(Math.random() * wordsSet.length)]
@@ -102,3 +105,10 @@ text.addEventListener('input', (e) => {
     }
 });
 
+// Show/Hide difficult setting
+settingsBtn.addEventListener('click', () => settings.classList.toggle('hide'));
+
+// Settings select
+settings.addEventListener('change', (event) => {
+    difficulty = event.target.value;
+});
