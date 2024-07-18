@@ -34,7 +34,10 @@ let score = 0;
 let time = 10;
 
 // Difficulty level
-let difficulty;
+let difficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium';
+
+// Set difficulty select value
+defficultySelect.value = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium';
 
 // Get a random word from array
 function getRandomWord(){
@@ -111,4 +114,7 @@ settingsBtn.addEventListener('click', () => settings.classList.toggle('hide'));
 // Settings select
 settings.addEventListener('change', (event) => {
     difficulty = event.target.value;
+    
+    // Set difficulty to localStorage
+    localStorage.setItem('difficulty', difficulty);
 });
